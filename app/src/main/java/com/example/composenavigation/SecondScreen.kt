@@ -14,7 +14,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun SecondScreen(navHostController: NavHostController) {
+fun SecondScreen(navHostController: NavHostController, name: String?) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -24,16 +24,15 @@ fun SecondScreen(navHostController: NavHostController) {
                 navHostController.navigate(Screen.Home.route)
 //                navHostController.popBackStack()
             },
-            text = "Second Screen",
+            text = "Hello $name",
             color = Color.Gray,
             style = MaterialTheme.typography.h5
         )
     }
 }
 
-
 @Composable
 @Preview(showBackground = true)
 fun SecondScreenPreview(){
-    SecondScreen(rememberNavController())
+    SecondScreen(rememberNavController(),"")
 }
